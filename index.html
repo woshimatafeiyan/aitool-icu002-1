@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AITool.icu - Search, Compare &amp; Save AI Tools</title>
+  <meta name="description" content="Search, filter, compare, and save the best AI tools. Explore featured tools, trending picks, Top 100 rankings, and newsletter updates." />
+  <link rel="canonical" href="https://www.aitool.icu/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AITool.icu" />
+  <meta property="og:title" content="AITool.icu - Search, Compare &amp; Save AI Tools" />
+  <meta property="og:description" content="Search, filter, compare, and save the best AI tools. Explore featured tools, trending picks, Top 100 rankings, and newsletter updates." />
+  <meta property="og:url" content="https://www.aitool.icu/" />
+  <meta property="og:image" content="https://www.aitool.icu/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AITool.icu - Search, Compare &amp; Save AI Tools" />
+  <meta name="twitter:description" content="Search, filter, compare, and save the best AI tools. Explore featured tools, trending picks, Top 100 rankings, and newsletter updates." />
+  <meta name="twitter:image" content="https://www.aitool.icu/og-cover.svg" />
+  <script defer src="/assets/tools.js"></script>
+  <script defer src="/site.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/"><span class="brand-dot"></span><span>AITool.icu</span></a>
+    <nav class="nav-links">
+      <a href="/directory.html">Directory</a>
+      <a href="/top100.html">Top 100</a>
+      <a href="/compare.html">Compare</a>
+      <a href="/submit.html">Submit Tool</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <div class="chips"><span class="chip">AI Directory</span><span class="chip">Compare Tools</span><span class="chip">Top 100</span><span class="chip">Newsletter</span></div>
+        <h1>Find the right AI tool faster.</h1>
+        <p class="lead">Use live search, filters, strong compare fields, saved stacks, and a local Top 100 ranking to discover tools for work, study, design, coding, and growth.</p>
+        <div class="search-shell panel">
+          <div class="filters">
+            <input id="searchInput" type="text" placeholder="Search tools, use cases, or tags…" />
+            <select id="categoryFilter"><option value="">All categories</option><option value="ai-chat">AI Chat</option><option value="ai-search">AI Search</option><option value="ai-writing">AI Writing</option><option value="ai-image">AI Image</option><option value="ai-video">AI Video</option><option value="ai-audio">AI Audio</option><option value="ai-coding">AI Coding</option><option value="ai-productivity">AI Productivity</option><option value="ai-design">AI Design</option><option value="ai-marketing">AI Marketing</option></select>
+            <select id="pricingFilter"><option value="">Any pricing</option><option>Free</option><option>Freemium</option><option>Paid</option></select>
+            <select id="sortFilter"><option value="featured">Sort: Featured</option><option value="popularity">Popularity</option><option value="rating">Rating</option><option value="newest">Newest</option><option value="name">Name</option></select>
+            <label class="chip" style="display:flex;align-items:center;gap:8px"><input id="featuredOnly" type="checkbox" /> Featured only</label>
+          </div>
+          <div class="chips">
+            <span class="chip">Tools: <strong data-stat="tool-count">0</strong></span>
+            <span class="chip">Favorites: <strong data-counter="favorites">0</strong></span>
+            <span class="chip">Compare: <strong data-counter="compare">0</strong></span>
+            <span class="chip">Stack: <strong data-counter="stack">0</strong></span>
+          </div>
+          <div class="small muted" id="resultsCount" style="margin-top:10px"></div>
+        </div>
+        <div class="hero-kpis">
+          <div class="metric"><strong data-stat="tool-count">0</strong><span>Tools indexed</span></div>
+          <div class="metric"><strong>10</strong><span>Main categories</span></div>
+          <div class="metric"><strong>100</strong><span>Top 100 local ranking</span></div>
+          <div class="metric"><strong>3</strong><span>Tools per compare</span></div>
+        </div>
+      </div>
+      <div class="hero-side">
+        <aside class="newsletter-card">
+          <h3>Newsletter</h3>
+          <p class="muted">Get weekly AI picks, top launches, and category roundups. This demo stores emails locally and can be connected to Beehiiv, Mailchimp, Buttondown, or ConvertKit later.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" />
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+          <p class="small newsletter-note muted">Tip: connect a real provider later without changing the layout.</p>
+        </aside>
+        <aside class="stack-card">
+          <h3>Your stack</h3>
+          <p class="small muted">Save tools you want to revisit later. Works in your browser immediately.</p>
+          <ul class="list" id="stackPreview"></ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <a class="btn-soft" href="/directory.html">Browse tools</a>
+            <a class="btn-ghost" href="/compare.html">Open compare</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>Featured tools</h2><p>Editor-style picks you can compare and save immediately.</p></div><a class="btn-ghost" href="/directory.html">Open full directory</a></div>
+    <div class="grid" id="featuredGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>Trending now</h2><p>Popular tools ranked by local popularity scores in this starter build.</p></div><a class="btn-ghost" href="/top100.html">See Top 100</a></div>
+    <div class="grid" id="trendingGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>Deals & trials</h2><p>Tools flagged with free plans, offers, or good starting points.</p></div><a class="btn-ghost" href="/submit.html">Submit a tool</a></div>
+    <div class="grid" id="dealsGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>Browse by category</h2><p>Categories are one of the strongest entry points on AI directories today. Featured/trending categories and clear counts are common patterns on large directories. citeturn527272search2turn527272search6turn527272search12</p></div></div>
+    <div class="grid">
+      <a class="card" href="/categories/ai-chat.html"><h3>AI Chat</h3><p>Chatbots, assistants, and general-purpose LLM tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-chat">0</strong> tools</div></a><a class="card" href="/categories/ai-search.html"><h3>AI Search</h3><p>Research and search tools that help you find answers fast.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-search">0</strong> tools</div></a><a class="card" href="/categories/ai-writing.html"><h3>AI Writing</h3><p>Writing, copy, editing, and document generation tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-writing">0</strong> tools</div></a><a class="card" href="/categories/ai-image.html"><h3>AI Image</h3><p>Image generation, editing, and design helpers.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-image">0</strong> tools</div></a><a class="card" href="/categories/ai-video.html"><h3>AI Video</h3><p>Video generation, editing, and avatar tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-video">0</strong> tools</div></a><a class="card" href="/categories/ai-audio.html"><h3>AI Audio</h3><p>Voice, music, transcription, and audio production tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-audio">0</strong> tools</div></a><a class="card" href="/categories/ai-coding.html"><h3>AI Coding</h3><p>Coding copilots, app builders, and developer tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-coding">0</strong> tools</div></a><a class="card" href="/categories/ai-productivity.html"><h3>AI Productivity</h3><p>Notes, meetings, planning, and workflow tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-productivity">0</strong> tools</div></a><a class="card" href="/categories/ai-design.html"><h3>AI Design</h3><p>Presentation, UI, creative, and visual design tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-design">0</strong> tools</div></a><a class="card" href="/categories/ai-marketing.html"><h3>AI Marketing</h3><p>SEO, email, ads, CRM, and growth tools.</p><div class="small muted" style="margin-top:8px"><strong data-catcount="ai-marketing">0</strong> tools</div></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>What this v6 adds</h2><p>Featured/trending sections, submit-tool, compare, stacks, newsletter, and a Top 100 page are all common patterns across mature AI directories. citeturn527272search1turn527272search5turn527272search9turn527272search11</p></div></div>
+    <div class="grid">
+      <div class="card"><h3>Directory + filters</h3><p>Search by name, use case, category, pricing, and featured status.</p></div>
+      <div class="card"><h3>Compare</h3><p>Stronger field-by-field comparison with API, mobile, outputs, and privacy posture.</p></div>
+      <div class="card"><h3>Newsletter slot</h3><p>A stable signup block is already wired in so you can connect a real provider later.</p></div>
+      <div class="card"><h3>Top 100</h3><p>A dedicated ranking page gives you a content hub for discovery and SEO expansion.</p></div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>AITool.icu</strong>
+      <p class="small">A searchable AI tools directory with compare, Top 100, favorites, stacks, and a built-in newsletter signup slot.</p>
+    </div>
+    <div>
+      <strong>Explore</strong>
+      <ul class="list">
+        <li><a href="/directory.html">Directory</a></li>
+        <li><a href="/top100.html">Top 100</a></li>
+        <li><a href="/best/best-ai-tools.html">Best AI Tools</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>Company</strong>
+      <ul class="list">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/submit.html">Submit Tool</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>Legal</strong>
+      <ul class="list">
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body></html>
