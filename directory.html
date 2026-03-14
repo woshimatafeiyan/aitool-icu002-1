@@ -1,24 +1,31 @@
-<!doctype html><html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Tools Directory - AITool.icu</title>
-  <meta name="description" content="Browse, search, filter, compare, and save AI tools across chat, image, video, coding, productivity, and marketing." />
+  <title>AI Tools Directory - Search, Filter & Compare | AITool.icu</title>
+  <meta name="description" content="Browse the AITool.icu directory to search, filter, compare, and save AI tools by category, pricing, popularity, and featured status." />
   <link rel="canonical" href="https://www.aitool.icu/directory.html" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/style.css" />
+
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AITool.icu" />
-  <meta property="og:title" content="AI Tools Directory - AITool.icu" />
-  <meta property="og:description" content="Browse, search, filter, compare, and save AI tools across chat, image, video, coding, productivity, and marketing." />
+  <meta property="og:title" content="AI Tools Directory - Search, Filter & Compare | AITool.icu" />
+  <meta property="og:description" content="Browse the AITool.icu directory to search, filter, compare, and save AI tools by category, pricing, popularity, and featured status." />
   <meta property="og:url" content="https://www.aitool.icu/directory.html" />
   <meta property="og:image" content="https://www.aitool.icu/og-cover.svg" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Tools Directory - AITool.icu" />
-  <meta name="twitter:description" content="Browse, search, filter, compare, and save AI tools across chat, image, video, coding, productivity, and marketing." />
+  <meta name="twitter:title" content="AI Tools Directory - Search, Filter & Compare | AITool.icu" />
+  <meta name="twitter:description" content="Browse the AITool.icu directory to search, filter, compare, and save AI tools by category, pricing, popularity, and featured status." />
   <meta name="twitter:image" content="https://www.aitool.icu/og-cover.svg" />
+
   <script defer src="/assets/tools.js"></script>
   <script defer src="/site.js"></script>
-</head><body><header class="site-header">
+</head>
+<body>
+<header class="site-header">
   <div class="container nav">
     <a class="brand" href="/"><span class="brand-dot"></span><span>AITool.icu</span></a>
     <nav class="nav-links">
@@ -29,34 +36,241 @@
       <a href="/about.html">About</a>
     </nav>
   </div>
-</header><main class="container section"><div class="section-head"><div><h1 style="margin:0">AI Tools Directory</h1><p>Browse all indexed tools with filters and actions that actually work.</p></div><div class="chips"><span class="chip">Favorites <strong data-counter="favorites">0</strong></span><span class="chip">Compare <strong data-counter="compare">0</strong></span><span class="chip">Stack <strong data-counter="stack">0</strong></span></div></div><div class="panel search-shell"><div class="filters"><input id="directorySearch" type="text" placeholder="Search by name, category, use case, or tag…" /><select id="categoryFilter"><option value="">All categories</option><option value="ai-chat">AI Chat</option><option value="ai-search">AI Search</option><option value="ai-writing">AI Writing</option><option value="ai-image">AI Image</option><option value="ai-video">AI Video</option><option value="ai-audio">AI Audio</option><option value="ai-coding">AI Coding</option><option value="ai-productivity">AI Productivity</option><option value="ai-design">AI Design</option><option value="ai-marketing">AI Marketing</option></select><select id="pricingFilter"><option value="">Any pricing</option><option>Free</option><option>Freemium</option><option>Paid</option></select><select id="sortFilter"><option value="featured">Sort: Featured</option><option value="popularity">Popularity</option><option value="rating">Rating</option><option value="newest">Newest</option><option value="name">Name</option></select><label class="chip" style="display:flex;align-items:center;gap:8px"><input id="featuredOnly" type="checkbox" /> Featured only</label></div><p id="resultsCount" class="small muted" style="margin-top:10px"></p></div><div class="section"><div class="grid" id="directoryGrid"></div></div></main><footer class="footer">
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <div class="chips">
+          <span class="chip">AI Directory</span>
+          <span class="chip">Search</span>
+          <span class="chip">Filter</span>
+          <span class="chip">Compare</span>
+        </div>
+
+        <h1>Browse the full AI tools directory.</h1>
+        <p class="lead">
+          Use this page when you want to search a larger set of AI tools, narrow it by category or pricing,
+          sort by popularity or rating, and save a shortlist before you commit time or budget.
+        </p>
+
+        <p class="muted" style="margin:0 0 18px">
+          A good directory should help you do three things quickly: find candidates, remove bad fits,
+          and compare the last few options side by side. That is what this page is built for.
+        </p>
+
+        <div class="search-shell panel">
+          <div class="filters">
+            <input id="searchInput" type="text" placeholder="Search tools, use cases, or tags…" />
+
+            <select id="categoryFilter">
+              <option value="">All categories</option>
+              <option value="ai-chat">AI Chat</option>
+              <option value="ai-search">AI Search</option>
+              <option value="ai-writing">AI Writing</option>
+              <option value="ai-image">AI Image</option>
+              <option value="ai-video">AI Video</option>
+              <option value="ai-audio">AI Audio</option>
+              <option value="ai-coding">AI Coding</option>
+              <option value="ai-productivity">AI Productivity</option>
+              <option value="ai-design">AI Design</option>
+              <option value="ai-marketing">AI Marketing</option>
+            </select>
+
+            <select id="pricingFilter">
+              <option value="">Any pricing</option>
+              <option>Free</option>
+              <option>Freemium</option>
+              <option>Paid</option>
+            </select>
+
+            <select id="sortFilter">
+              <option value="featured">Sort: Featured</option>
+              <option value="popularity">Popularity</option>
+              <option value="rating">Rating</option>
+              <option value="newest">Newest</option>
+              <option value="name">Name</option>
+            </select>
+
+            <label class="filter-check">
+              <input id="featuredOnly" type="checkbox" />
+              <span>Featured only</span>
+            </label>
+          </div>
+
+          <div class="chips">
+            <span class="chip">Tools: <strong data-stat="tool-count">0</strong></span>
+            <span class="chip">Favorites: <strong data-counter="favorites">0</strong></span>
+            <span class="chip">Compare: <strong data-counter="compare">0</strong></span>
+            <span class="chip">Stack: <strong data-counter="stack">0</strong></span>
+          </div>
+
+          <div class="small muted" id="resultsCount" style="margin-top:10px"></div>
+        </div>
+
+        <div class="hero-kpis">
+          <div class="metric"><strong data-stat="tool-count">0</strong><span>Total tools</span></div>
+          <div class="metric"><strong>10</strong><span>Main categories</span></div>
+          <div class="metric"><strong>3</strong><span>Tools per compare</span></div>
+          <div class="metric"><strong>1</strong><span>Directory to shortlist flow</span></div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <aside class="compare-card">
+          <h3>How to use the directory</h3>
+          <ul class="list">
+            <li><span>1. Start broad</span><span class="muted">Search by job to be done</span></li>
+            <li><span>2. Narrow fast</span><span class="muted">Filter by category and pricing</span></li>
+            <li><span>3. Save options</span><span class="muted">Use Favorites and Stack</span></li>
+            <li><span>4. Compare</span><span class="muted">Keep only the best 2–3</span></li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <a class="btn-soft" href="/compare.html">Open compare</a>
+            <a class="btn-ghost" href="/top100.html">View Top 100</a>
+          </div>
+        </aside>
+
+        <aside class="stack-card">
+          <h3>Quick entry points</h3>
+          <ul class="list">
+            <li><a href="/categories/ai-chat.html">AI Chat</a><span class="muted">Assistants and chatbots</span></li>
+            <li><a href="/categories/ai-coding.html">AI Coding</a><span class="muted">Developer tools</span></li>
+            <li><a href="/categories/ai-image.html">AI Image</a><span class="muted">Generation and editing</span></li>
+            <li><a href="/categories/ai-video.html">AI Video</a><span class="muted">Video creation tools</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>All tools</h2>
+        <p>
+          This directory is designed for practical selection, not just browsing. Search by task, filter by
+          category and pricing, then compare the shortlist that survives your first pass.
+        </p>
+      </div>
+      <a class="btn-ghost" href="/submit.html">Submit a tool</a>
+    </div>
+
+    <div class="grid" id="directoryGrid"></div>
+
+    <div class="empty hidden" id="emptyState">
+      No tools match your current filters. Try clearing one filter, searching a broader term,
+      or opening a category page instead.
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>What to compare before you pick a tool</h2>
+        <p>Use the compare page when you are down to a few serious options.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Output quality</h3>
+        <p>Can it actually produce work you can use, or does it only look impressive in demos?</p>
+      </div>
+      <div class="card">
+        <h3>Workflow fit</h3>
+        <p>Does it fit how you already work, or will it add more switching and overhead?</p>
+      </div>
+      <div class="card">
+        <h3>Pricing</h3>
+        <p>Free and freemium are useful, but only if the important parts are not locked away.</p>
+      </div>
+      <div class="card">
+        <h3>Reliability</h3>
+        <p>For work use, stable output and clear limits usually matter more than flashy features.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>Category shortcuts</h2>
+        <p>Jump straight into the group that matches your task.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <a class="card" href="/categories/ai-chat.html">
+        <h3>AI Chat</h3>
+        <p>General assistants, brainstorming, Q&amp;A, and daily work helpers.</p>
+      </a>
+
+      <a class="card" href="/categories/ai-search.html">
+        <h3>AI Search</h3>
+        <p>Research-focused tools that combine search and answer generation.</p>
+      </a>
+
+      <a class="card" href="/categories/ai-writing.html">
+        <h3>AI Writing</h3>
+        <p>Writing, editing, rewriting, and content production tools.</p>
+      </a>
+
+      <a class="card" href="/categories/ai-image.html">
+        <h3>AI Image</h3>
+        <p>Image generation, concept art, visual editing, and creative assets.</p>
+      </a>
+
+      <a class="card" href="/categories/ai-video.html">
+        <h3>AI Video</h3>
+        <p>Video generation, avatar tools, editing, and short-form creation.</p>
+      </a>
+
+      <a class="card" href="/categories/ai-coding.html">
+        <h3>AI Coding</h3>
+        <p>Code assistants, builders, and productivity tools for developers.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
   <div class="container footer-grid">
     <div>
       <strong>AITool.icu</strong>
-      <p class="small">A searchable AI tools directory with compare, Top 100, favorites, stacks, and a built-in newsletter signup slot.</p>
+      <p class="small">
+        A practical AI tools directory built to help people search, filter, compare, and save tools before choosing one.
+      </p>
     </div>
+
     <div>
       <strong>Explore</strong>
       <ul class="list">
         <li><a href="/directory.html">Directory</a></li>
         <li><a href="/top100.html">Top 100</a></li>
-        <li><a href="/best/best-ai-tools.html">Best AI Tools</a></li>
+        <li><a href="/compare.html">Compare</a></li>
       </ul>
     </div>
+
     <div>
-      <strong>Company</strong>
+      <strong>Categories</strong>
+      <ul class="list">
+        <li><a href="/categories/ai-chat.html">AI Chat</a></li>
+        <li><a href="/categories/ai-image.html">AI Image</a></li>
+        <li><a href="/categories/ai-coding.html">AI Coding</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <strong>Site</strong>
       <ul class="list">
         <li><a href="/about.html">About</a></li>
         <li><a href="/submit.html">Submit Tool</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
     </div>
-    <div>
-      <strong>Legal</strong>
-      <ul class="list">
-        <li><a href="/privacy.html">Privacy</a></li>
-        <li><a href="/terms.html">Terms</a></li>
-      </ul>
-    </div>
   </div>
-</footer></body></html>
+</footer>
+</body>
+</html>
